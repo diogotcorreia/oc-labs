@@ -1,0 +1,35 @@
+name: Test-Notebooks
+
+# Run every time a new commit is pushed
+on: push
+
+jobs:
+  test-notebooks:
+    name: Test Jupyter Notebooks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "pip" # caching pip dependencies
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check pre-commit hooks
+        uses: pre-commit/action@v3.0.0
+
+      - name: Execute and save Notebooks to HTML
+        run: jupyter nbconvert --to html --theme dark --embed-images --execute src/**/*.ipynb
+
+      - name: Upload HTML Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Jupyter Notebooks (HTML)
+          path: src/**/*.html
+          if-no-files-found: error

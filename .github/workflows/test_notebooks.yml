@@ -22,9 +22,9 @@ jobs:
         uses: nikeee/setup-pandoc@v1
 
       - name: Setup LaTeX
-        uses: ConorMacBride/install-package@v1
-        with:
-          apt: texlive-xetex texlive-fonts-recommended texlive-plain-generic
+        run: |
+          sudo apt update
+          sudo apt install -y texlive-xetex texlive-fonts-recommended texlive-plain-generic
 
       - name: Install dependencies
         run: pip install -r requirements.txt

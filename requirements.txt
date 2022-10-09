@@ -1,10 +1,6 @@
 black
 ipykernel
-matplotlib
 nbformat
 nbconvert
 nbstripout
-pandas
 pre-commit
-seaborn
-sklearn

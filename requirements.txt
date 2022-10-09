@@ -3,4 +3,5 @@ ipykernel
 nbformat
 nbconvert
 nbstripout
+pandoc
 pre-commit

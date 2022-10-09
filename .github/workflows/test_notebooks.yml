@@ -18,8 +18,21 @@ jobs:
           python-version: "3.10"
           cache: "pip" # caching pip dependencies
 
+      - name: Setup Pandoc
+        uses: nikeee/setup-pandoc@v1
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Check pre-commit hooks
         uses: pre-commit/action@v3.0.0
+
+      - name: Execute and save Notebooks to PDF
+        run: jupyter nbconvert --to pdf --execute src/**/*.ipynb
+
+      - name: Upload PDF Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Jupyter Notebooks (PDF)
+          path: src/**/*.pdf
+          if-no-files-found: error

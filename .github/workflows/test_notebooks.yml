@@ -25,11 +25,11 @@ jobs:
         uses: pre-commit/action@v3.0.0
 
       - name: Execute and save Notebooks to HTML
-        run: jupyter nbconvert --to html --execute src/**/*.ipynb
+        run: jupyter nbconvert --to html --theme dark --embed-images --execute src/**/*.ipynb
 
       - name: Upload HTML Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Jupyter Notebooks (PDF)
+          name: Jupyter Notebooks (HTML)
           path: src/**/*.html
           if-no-files-found: error

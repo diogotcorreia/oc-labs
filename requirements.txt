@@ -1,6 +1,9 @@
 black
+drawSvg
 ipykernel
 nbformat
 nbconvert
 nbstripout
+pandas
 pre-commit
+seaborn

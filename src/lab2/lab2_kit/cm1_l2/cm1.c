@@ -6,7 +6,7 @@
 #include <string.h>
 
 #define CACHE_MIN (8 * 1024)
-#define CACHE_MAX (8 * 1024 * 1024)
+#define CACHE_MAX (2 * 1024 * 1024)
 #define N_REPETITIONS (200)
 
 void handle_error(char *outstring);

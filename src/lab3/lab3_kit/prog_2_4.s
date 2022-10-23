@@ -27,7 +27,7 @@ loop:
 
         bne     $6, $5, loop   ; Exit loop if index == N
 
-        dmul    $16, $9, $12   ; $16 = $12*$9 ;; $16 = A[i]*mult
+        dmul    $16, $12, $9   ; $16 = $12*$9 ;; $16 = A[i]*mult
         dadd    $9, $9, $16    ; $9 = $9 + $16 ;; mult = mult + A[i]*mult
         
         sw      $9, mult($0)   ; Store result

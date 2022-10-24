@@ -6,7 +6,7 @@ mult:   .word   0
         .code
         daddi   $1, $0, A      ; *A[0]
         daddi   $5, $0, 1      ; $5 = 1 ;; index
-        daddi   $6, $0, 9      ; $6 = N ;; N = 9
+        daddi   $6, $0, 7      ; $6 = N ;; N = 9
 
         lw      $9, 0($1)      ; $9 = A[0]  ;; mult
         lw      $12, 8($1)     ; $12 = A[1]
@@ -26,6 +26,14 @@ loop:
         dadd    $9, $9, $17    ; $9 = $9 + $17 ;; mult = mult + A[i]*mult
 
         bne     $6, $5, loop   ; Exit loop if index == N
+
+        dmul    $16, $12, $9   ; $16 = $12*$9 ;; $16 = A[i]*mult
+        daddi   $1, $1, 16     ; *$1 +=2 
+        dadd    $9, $9, $16    ; $9 = $9 + $16 ;; mult = mult + A[i]*mult
+
+        dmul    $17, $13, $9   ; $17 = $9*$17 ;; $17 = A[i]*mult
+        lw      $12, 0($1)     ; $12 = A[i]
+        dadd    $9, $9, $17    ; $9 = $9 + $17 ;; mult = mult + A[i]*mult
 
         dmul    $16, $12, $9   ; $16 = $12*$9 ;; $16 = A[i]*mult
         dadd    $9, $9, $16    ; $9 = $9 + $16 ;; mult = mult + A[i]*mult

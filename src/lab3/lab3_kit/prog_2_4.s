@@ -6,7 +6,7 @@ mult:   .word   0
         .code
         daddi   $1, $0, A      ; *A[0]
         daddi   $5, $0, 1      ; $5 = 1 ;; index
-        daddi   $6, $0, 7      ; $6 = N ;; N = 9
+        daddi   $6, $0, 7      ; $6 = N ;; N = 7
 
         lw      $9, 0($1)      ; $9 = A[0]  ;; mult
         lw      $12, 8($1)     ; $12 = A[1]

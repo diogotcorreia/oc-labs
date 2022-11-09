@@ -18,3 +18,9 @@ Finally, setup Git hooks in order for Notebook outputs to be cleared before comm
 ```
 pre-commit install
 ```
+
+## Pre-compiled PDFs
+
+You can find the compiled versions of the PDF reports for every lab in this repository
+releases' section (under "Assets"), along with the corresponding grade for each one.
+A compiled version of each Jupyter Notebook is also provided.
